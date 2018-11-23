@@ -9,36 +9,49 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.Inflater;
+import java.util.zip.InflaterOutputStream;
 
 public class CompressedActivity extends Activity {
 
     private Button compressContent;
     private TextView contentToCompress;
-    private TextView contentCompressed;
+    private TextView contentDecompressed;
     private TextView lengthComparison;
 
+    private String textFromServer;
     @Override
     protected void onCreate(Bundle instanceState) {
         super.onCreate(instanceState);
-
+        setContentView(R.layout.compressed);
         compressContent = findViewById(R.id.buttCompTrans);
         contentToCompress = findViewById(R.id.buttCompTrans);
-        contentCompressed = findViewById(R.id.buttCompTrans);
+        contentDecompressed = findViewById(R.id.buttCompTrans);
         lengthComparison = findViewById(R.id.buttCompTrans);
 
         compressContent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                byte[] bytes = new byte[0];
+                byte[] bytesSended = new byte[0];
+                byte[] bytesReceived = new byte[0];
+
                 try {
-                    bytes = postCompress();
+                    bytesSended = postCompress();
+                    bytesReceived = getDecompressed();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (DataFormatException e) {
+                    e.printStackTrace();
                 }
-                contentCompressed.setText(bytes.toString());
+                contentDecompressed.setText(bytesReceived.toString());
+
+                lengthComparison.setText( "Length before compression: " +
+                        bytesSended.toString().length()
+                        + "\n" + "Length after decompression: "
+                        + bytesReceived.toString().length());
             }
         });
     }
@@ -65,17 +78,24 @@ public class CompressedActivity extends Activity {
         return output;
     }
 
-    public void getDecompressed(){
+    public byte[] getDecompressed() throws IOException, DataFormatException {
+
+        byte[] data = textFromServer.getBytes();
 
         Inflater inflater = new Inflater();
+        inflater.setInput(data);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
+        InflaterOutputStream decompressed = new InflaterOutputStream(outputStream,inflater);
 
+        byte[] buffer = new byte[1024];
+        while (!inflater.finished()) {
+            int count = inflater.inflate(buffer);
+            outputStream.write(buffer, 0, count);
+        }
+        outputStream.close();
 
+        byte[] output = outputStream.toByteArray();
 
-
-        lengthComparison.setText( "Length before compression: " +
-                                    compressContent.getText().length()
-                                    + "\n" + "Length after compression: "
-                                    );
-
+        return output;
     }
 }
