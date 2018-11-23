@@ -8,5 +8,6 @@
     <string name="buttGraph">Transmission GraphQL</string>
     <string name="buttComp">Transmission Compressée</string>
     <string name="title_activity_on_success">Bienvenu !</string>
+    <string name="good">Prochaine Activité</string>
 
 </resources>

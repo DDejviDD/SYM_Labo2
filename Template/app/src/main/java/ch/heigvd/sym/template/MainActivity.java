@@ -29,94 +29,112 @@
  */
 package ch.heigvd.sym.template;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     // For logging purposes
     private static final String TAG = MainActivity.class.getSimpleName();
 
-	private static ArrayMap<String,String> validList = new ArrayMap<String, String>();
-
     // GUI elements
-	private Button serialize            = null;
-	private Button buttAsynchTrans	    = null;
-    private Button delayed              = null;
-    private Button graphQl              = null;
-    private Button compressed           = null;
+    private Button buttObjTrans         = null;
+    private Button buttAsynchTrans	    = null;
+    private Button buttDiffTrans        = null;
+    private Button buttGraphTrans       = null;
+    private Button buttCompTrans        = null;
 
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_menu);
+        setContentView(R.layout.main_menu);
 
-		// GUI elements
+        // Link GUI elements
+        buttObjTrans = findViewById(R.id.buttObjTrans);
+        buttAsynchTrans = findViewById(R.id.buttAsynchTrans);
+        buttDiffTrans = findViewById(R.id.buttDiffTrans);
+        buttGraphTrans = findViewById(R.id.buttGraphTrans);
+        buttCompTrans = findViewById(R.id.buttCompTrans);
 
+        // Give buttons an action
+        buttObjTrans.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
 
+                //Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 
+                Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.SerialiseActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
 
-		/* Then program action associated to "Ok" button
-		signIn.setOnClickListener(new OnClickListener(){
+        });
 
-			@Override
-			public void onClick(View v) {
+        buttAsynchTrans.setOnClickListener(new View.OnClickListener() {
 
-			    // Récupération de la valeur des champs email et password (remplis par le user)
-				String mail = email.getText().toString();
-				String passwd = password.getText().toString();
+            @Override
+            public void onClick(View v) {
 
-                // Vérification des champs (selon la donnée)
-				if(!mail.contains("@")) {
-					Toast.makeText(MainActivity.this, getResources().getString(R.string.bad), Toast.LENGTH_LONG).show();
-				} else if (isValid(mail, passwd)) {
+                //Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 
-				    // Login réussi -> Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
-                    Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.AsynchActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
 
-				    Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.OnSuccessActivity.class);
-				    intent.putExtra("EMAIL", mail);
-				    MainActivity.this.startActivity(intent);
+        });
 
-				} else {
-					// Wrong combination, display pop-up dialog and stay on login screen
-					showErrorDialog(mail, passwd);
-					email.setText("");
-					password.setText("");
-				}
-			}
+        buttDiffTrans.setOnClickListener(new View.OnClickListener() {
 
-			
-		});*/
-	}
+            @Override
+            public void onClick(View v) {
 
-    @Override
-    protected void onStart() {
-	    super.onStart();
-        Log.println(Log.INFO, "", "ON START !!!");
+                //Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.DelayedActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+
+        });
+
+        buttGraphTrans.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.GraphActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+
+        });
+
+        buttCompTrans.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.CompressedActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+
+        });
+        
     }
 
-    @Override
-    protected void onResume() {
-	    super.onResume();
-        Log.println(Log.INFO, "", "ON RESUME !!!");
-    }
-
-    @Override
-    protected void onPause() {
-	    super.onPause();
-        Log.println(Log.INFO, "", "ON PAUSE !!!");
-    }
-
-    @Override
-    protected void onStop() {
-	    super.onStop();
-        Log.println(Log.INFO, "", "ON STOP !!!");
-    }
 
 }
