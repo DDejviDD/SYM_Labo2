@@ -3,19 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <TextView
-        android:id="@+id/email"
+    <EditText
+        android:id="@+id/mettre_ton_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/IMEI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:textSize="15sp"
-        android:gravity="center_horizontal" />
-
+        android:hint="Mettre ton label"
+        android:inputType="text" />
 </LinearLayout>
