@@ -24,40 +24,50 @@
         <activity
             android:name=".AsynchActivity"
             android:label="@string/buttAsynch">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".CompressedActivity"
             android:label="@string/buttComp">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".DelayedActivity"
             android:label="@string/buttDiff">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".GraphActivity"
             android:label="@string/buttGraph">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".SerialiseActivity"
             android:label="@string/buttObj">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
