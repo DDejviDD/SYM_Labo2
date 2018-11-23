@@ -32,10 +32,10 @@
             android:text="serializable_lastname" />
 
         <Button
-            android:id="@+id/sendRequest"
+            android:id="@+id/serializable_send_request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="string/serializable_send" />
+            android:text="string/serializable_send_request" />
 
         <TextView
             android:id="@+id/response_serializable_first_name"
