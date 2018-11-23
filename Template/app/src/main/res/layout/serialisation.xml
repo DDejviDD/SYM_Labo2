@@ -4,48 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/label_serializable_username"
-            android:layout_width="wrap_content"
+            android:id="@+id/label_serializable_first_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="string/label_serializable_username" />
+            android:layout_marginTop="50dp"
+            android:text="string/serializable_first_name" />
 
         <EditText
-            android:id="@+id/edit_serializable_username"
-            android:layout_width="144dp"
+            android:id="@+id/edit_serializable_first_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/labelMessage"
-            android:inputType="textPersonName"
-            android:text="string/edit_serializable_username" />
+            android:text="serializable_first_name" />
 
         <TextView
-            android:id="@+id/labelMessage"
-            android:layout_width="wrap_content"
+            android:id="@+id/label_serializable_last_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="string/labelMessage" />
+            android:text="string/serializable_last_name" />
 
         <EditText
-            android:id="@+id/EditableMessage"
-            android:layout_width="144dp"
+            android:id="@+id/edit_serializable_last_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/labelMessage"
-            android:inputType="textPersonName"
-            android:text="string/EditableMessage" />
+            android:text="serializable_lastname" />
 
         <Button
             android:id="@+id/sendRequest"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/labelMessage"
-            android:layout_below="@id/EditableMessage"
-            android:text="string/serialisationSendRequest" />
-    </RelativeLayout>
+            android:text="string/serializable_send" />
+
+        <TextView
+            android:id="@+id/response_serializable_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="string/waiting" />
+
+        <TextView
+            android:id="@+id/response_serializable_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="string/waiting" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
