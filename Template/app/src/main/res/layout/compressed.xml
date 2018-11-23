@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-<<<<<<< HEAD
     <TextView
         android:id="@+id/contentCompress"
         android:layout_width="match_parent"
@@ -29,12 +28,12 @@
         android:layout_marginTop="5sp"
         android:textSize="15sp"
         android:gravity="center_horizontal" />
-=======
+
     <EditText
         android:id="@+id/mettre_ton_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mettre ton label"
         android:inputType="text" />
->>>>>>> 4576229ab4d0fe133f3abeac2d6446b9588b63fe
+
 </LinearLayout>
