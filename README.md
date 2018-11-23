@@ -23,22 +23,19 @@ Quels problèmes cela peut-il poser ?
 ### 4 Ecriture différée
 Lorsque l'on implémente l'écriture différée, il arrive que l'on ait soudainement plusieurs transmissions en attente qui deviennent possibles simultanément.  
 Comment implémenter proprement cette situation (sans réalisation pratique) ?  
+
+timeout
 Voici deux possibilités :
 - Effectuer une connexion par transmission différée  
 - Multiplexer toutes les connexions vers un même serveur en une seule connexion de transport.  
-Dans ce dernier cas, comment implémenter le protocole applicatif, quels avantages peut-on
-espérer de ce multiplexage, et surtout, comment doit-on planifier les réponses du serveur
-lorsque ces dernières s'avèrent nécessaires ?  
+Dans ce dernier cas, comment implémenter le protocole applicatif, quels avantages peut-on espérer de ce multiplexage, et surtout, comment doit-on planifier les réponses du serveur lorsque ces dernières s'avèrent nécessaires ?  
 
 Comparer les deux techniques (et éventuellement d'autres que vous pourriez imaginer) et discuter des avantages et inconvénients respectifs.
 
 ### 5 Transmission d’objets
-a. Quel inconvénient y a-t-il à utiliser une infrastructure de type REST/JSON n'offrant aucun
-service de validation (DTD, XML-schéma, WSDL) par rapport à une infrastructure comme SOAP
-offrant ces possibilités ?  
+a. Quel inconvénient y a-t-il à utiliser une infrastructure de type REST/JSON n'offrant aucun service de validation (DTD, XML-schéma, WSDL) par rapport à une infrastructure comme SOAP offrant ces possibilités ?  
 Est-ce qu’il y a en revanche des avantages que vous pouvez citer ?  
-b. L’utilisation d’un mécanisme comme Protocol Buffers est-elle compatible avec une
-architecture basée sur HTTP ?  
+b. L’utilisation d’un mécanisme comme Protocol Buffers est-elle compatible avec une architecture basée sur HTTP ?  
 Veuillez discuter des éventuelles avantages ou limitations par rapport à un protocole basé sur JSON ou XML ?  
 c. Par rapport à l’API GraphQL mise à disposition pour ce laboratoire. Avez-vous constaté des
 points qui pourraient être améliorés pour une utilisation mobile ?  
