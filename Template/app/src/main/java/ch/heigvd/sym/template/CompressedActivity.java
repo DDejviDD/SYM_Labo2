@@ -23,14 +23,17 @@ public class CompressedActivity extends Activity {
     private TextView lengthComparison;
 
     private String textFromServer;
+
+    // Source : https://dzone.com/articles/how-compress-and-uncompress
+
     @Override
     protected void onCreate(Bundle instanceState) {
         super.onCreate(instanceState);
         setContentView(R.layout.compressed);
-        compressContent = findViewById(R.id.buttCompTrans);
-        contentToCompress = findViewById(R.id.buttCompTrans);
-        contentDecompressed = findViewById(R.id.buttCompTrans);
-        lengthComparison = findViewById(R.id.buttCompTrans);
+        compressContent = findViewById(R.id.buttComp);
+        contentToCompress = findViewById(R.id.contentCompress);
+        contentDecompressed = findViewById(R.id.contentDecompress);
+        lengthComparison = findViewById(R.id.lengthCompare);
 
         compressContent.setOnClickListener(new View.OnClickListener() {
             @Override
