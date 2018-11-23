@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/label_serializable_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="string/label_serializable_username" />
+
+        <EditText
+            android:id="@+id/edit_serializable_username"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelMessage"
+            android:inputType="textPersonName"
+            android:text="string/edit_serializable_username" />
+
+        <TextView
+            android:id="@+id/labelMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="string/labelMessage" />
+
+        <EditText
+            android:id="@+id/EditableMessage"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelMessage"
+            android:inputType="textPersonName"
+            android:text="string/EditableMessage" />
+
+        <Button
+            android:id="@+id/sendRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/labelMessage"
+            android:layout_below="@id/EditableMessage"
+            android:text="string/serialisationSendRequest" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
