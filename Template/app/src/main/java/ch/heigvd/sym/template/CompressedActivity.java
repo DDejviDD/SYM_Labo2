@@ -2,6 +2,7 @@ package ch.heigvd.sym.template;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +16,7 @@ import java.util.zip.DeflaterOutputStream;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterOutputStream;
 
-public class CompressedActivity extends Activity {
+public class CompressedActivity extends AppCompatActivity {
 
     private Button compressContent;
     private TextView contentToCompress;

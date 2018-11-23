@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
         android:textSize="15sp"
-        android:gravity="center_horizontal" />
+        android:text="Salut"/>
 
     <EditText
         android:id="@+id/mettre_ton_id"
