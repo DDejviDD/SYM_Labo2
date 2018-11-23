@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SYM Communication Internet</string>
+    <string name="buttAsynch">Transmissions Asynchrone</string>
+    <string name="buttDiff">Transmission Différée</string>
+    <string name="buttObj">Transmission d\'Objet</string>
+    <string name="buttGraph">Transmission GraphQL</string>
+    <string name="buttComp">Transmission Compressée</string>
+    <string name="title_activity_on_success">Bienvenu !</string>
+
+</resources>

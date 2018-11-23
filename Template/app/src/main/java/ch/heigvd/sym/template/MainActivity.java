@@ -4,6 +4,10 @@
  * Author   : Markus Jaton 2 juillet 2014
  * 			  Fabien Dutoit 28 août 2018
  *            IICT / HEIG-VD
+ *
+ * Modified by : FRUEH Loïc
+ * 				 KOUBAA Walid
+ * 				 MUAREMI DEJVID
  *                                       
  * mailto:fabien.dutoit@heig-vd.ch
  * 
@@ -25,102 +29,94 @@
  */
 package ch.heigvd.sym.template;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.ArrayMap;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     // For logging purposes
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    // Just for test purposes : please destroy !
-	private static final String validEmail      = "toto@tutu.com";
-	private static final String validPassword   = "tata";
+	private static ArrayMap<String,String> validList = new ArrayMap<String, String>();
 
     // GUI elements
-	private EditText email      = null;
-    private Button   signIn     = null;
+	private Button serialize            = null;
+	private Button buttAsynchTrans	    = null;
+    private Button delayed              = null;
+    private Button graphQl              = null;
+    private Button compressed           = null;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		// Show the welcome screen / login authentication dialog
-		setContentView(R.layout.authent);
+		setContentView(R.layout.main_menu);
 
-		// Link to GUI elements
-        this.email      = findViewById(R.id.email);
-        this.signIn     = findViewById(R.id.buttOk);
+		// GUI elements
 
-		// Then program action associated to "Ok" button
+
+
+
+
+		/* Then program action associated to "Ok" button
 		signIn.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				/*
-				 * There you have to check out if the email/password
-				 * combination given is valid or not
-				 */
+
+			    // Récupération de la valeur des champs email et password (remplis par le user)
 				String mail = email.getText().toString();
-				String passwd = null; //TODO read password from EditText
-				if (isValid(mail, passwd)) {
-					/* Ok, valid combination, do something or launch another activity...
-					 * The current activity could be finished, but it is not mandatory.
-					 * To launch activity MyActivity.class, try something like :
-					 * 
-					 * 			Intent intent = new Intent(this, ch.heigvd.sym.MyActivity.class);
-					 * 			intent.putExtra("emailEntered", mail);
-					 *			intent.putExtra("passwordGiven", passwd);
-					 *			this.startActivity(intent); 
-					 *
-					 * Alternately, you could also startActivityForResult if you are awaiting a result.
-					 * In the latter case, you have to indicate an int parameter to identify MyActivity
-					 * 
-					 * If you haven't anything more to do, you may finish()...
-					 * But just display a small message before quitting...
-					 */
-					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
-					finish();
+				String passwd = password.getText().toString();
+
+                // Vérification des champs (selon la donnée)
+				if(!mail.contains("@")) {
+					Toast.makeText(MainActivity.this, getResources().getString(R.string.bad), Toast.LENGTH_LONG).show();
+				} else if (isValid(mail, passwd)) {
+
+				    // Login réussi -> Toast indicatif + Creation d'un Intent afin de start une nouvelle activité
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+
+				    Intent intent = new Intent(MainActivity.this, ch.heigvd.sym.template.OnSuccessActivity.class);
+				    intent.putExtra("EMAIL", mail);
+				    MainActivity.this.startActivity(intent);
+
 				} else {
 					// Wrong combination, display pop-up dialog and stay on login screen
 					showErrorDialog(mail, passwd);
+					email.setText("");
+					password.setText("");
 				}
 			}
+
 			
-		});
+		});*/
 	}
-	
-	private boolean isValid(String mail, String passwd) {
-        if(mail == null || passwd == null) {
-            Log.w(TAG, "isValid(mail, passwd) - mail and passwd cannot be null !");
-            return false;
-        }
-		// Return true if combination valid, false otherwise
-		return (mail.equals(validEmail) && passwd.equals(validPassword));
-	}
-	
-	protected void showErrorDialog(String mail, String passwd) {
-		/*
-		 * Pop-up dialog to show error
-		 */
-		AlertDialog.Builder alertbd = new AlertDialog.Builder(this);
-        alertbd.setIcon(android.R.drawable.ic_dialog_alert);
-		alertbd.setTitle(R.string.wronglogin);
-	    alertbd.setMessage(R.string.wrong);
-	    alertbd.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	            // we do nothing...
-                // dialog close automatically
-	        }
-	     });
-	    alertbd.create().show();
-	}
-	
+
+    @Override
+    protected void onStart() {
+	    super.onStart();
+        Log.println(Log.INFO, "", "ON START !!!");
+    }
+
+    @Override
+    protected void onResume() {
+	    super.onResume();
+        Log.println(Log.INFO, "", "ON RESUME !!!");
+    }
+
+    @Override
+    protected void onPause() {
+	    super.onPause();
+        Log.println(Log.INFO, "", "ON PAUSE !!!");
+    }
+
+    @Override
+    protected void onStop() {
+	    super.onStop();
+        Log.println(Log.INFO, "", "ON STOP !!!");
+    }
+
 }
