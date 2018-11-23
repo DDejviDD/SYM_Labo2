@@ -30,13 +30,13 @@ public class AsynchronousRequest {
     //private List<EventListener> listeners = new LinkedList<>();
 
     // Run a new thread for sending the request, so that activity process will not be interrupted
-    public void sendRequest(final String request, final String myUrl, final MediaType mediaType) {
+    public void sendRequest(final String request, final String urlToSend, final MediaType mediaType) {
         new Thread() {
             public void run() {
-                RequestBody body = RequestBody.create(mediaType, request);
-                Request SendingRequest = new Request.Builder().url(myUrl).post(body).build();
+                RequestBody data = RequestBody.create(mediaType, request);
+                Request request = new Request.Builder().url(urlToSend).post(data).build();
                 try {
-                    Response response = client.newCall(SendingRequest).execute();
+                    Response response = client.newCall(request).execute();
 
                     /*for (EventListener event : listeners) {
                         if (event.handleServerResponse(response.body().string())) break;
