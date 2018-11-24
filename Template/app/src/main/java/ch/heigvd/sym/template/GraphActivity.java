@@ -23,7 +23,6 @@ public class GraphActivity extends AppCompatActivity {
     ScrollView postView = null;
 
 
-
     ArrayAdapter<String> authorsAdapterSpinner;
     List<String> authorsList = new ArrayList<>();
     Context savedContext = this;
@@ -44,7 +43,7 @@ public class GraphActivity extends AppCompatActivity {
                     @Override
                     public boolean handlerForRequest(final String response) {
                         try {
-                            JSONArray authorsJSON = new JSONObject(response).getJSONArray("allAuthors");
+                            JSONArray authorsJSON = new JSONObject(response).getJSONObject("data").getJSONArray("allAuthors");
                             for (int i = 0; i < authorsJSON.length(); ++i) {
                                 authorsList.add(authorsJSON.getJSONObject(i).getString("first_name") + " "
                                         + authorsJSON.getJSONObject(i).getString("last_name"));
@@ -58,21 +57,19 @@ public class GraphActivity extends AppCompatActivity {
                                 new Runnable() {
                                     @Override
                                     public void run() {
-                                        authorsAdapterSpinner.clear();
-                                        authorsAdapterSpinner.addAll(authorsList);
-                                        authorsAdapterSpinner.notifyDataSetChanged();
+                                        authorsAdapterSpinner = new ArrayAdapter<>(savedContext, android.R.layout.simple_spinner_item, authorsList);
+                                        authorsAdapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                        authorsSpinner.setAdapter(authorsAdapterSpinner);
                                     }
                                 }
                         );
-
                         return true;
                     }
                 }
         );
         request.postRequest("{ \"query\": \"{allAuthors{id, first_name, last_name }}\" }", "http://sym.iict.ch/api/graphql", MediaType.parse("application/json; charset=utf-8"));
-        authorsList.add("Loading...");
-        authorsAdapterSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, authorsList);
-        authorsAdapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        authorsSpinner.setAdapter(authorsAdapterSpinner);
+
+        // Request to get the post according to the author selected
+        
     }
 }
