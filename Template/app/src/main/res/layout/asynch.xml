@@ -4,9 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <EditText
-        android:id="@+id/mettre_ton_id"
+        android:id="@+id/dataToSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mettre ton label"
+        android:hint="Insert your text"
         android:inputType="text" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send data" />
+
+    <TextView
+        android:id="@+id/dataReceived"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:hint="Data received"
+        />
+
 </LinearLayout>
