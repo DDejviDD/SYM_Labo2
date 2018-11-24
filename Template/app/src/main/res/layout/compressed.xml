@@ -3,23 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <TextView
+    <EditText
         android:id="@+id/contentCompress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:hint="Insert your text"
         android:gravity="center_horizontal" />
     <Button
         android:id="@+id/buttComp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Send data"/>
+    <TextView
+        android:id="@+id/contentCompressed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
+        android:hint="Data compressed"/>
+
     <TextView
         android:id="@+id/contentDecompress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
         android:textSize="15sp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:hint="Data decompressed"/>
 
     <TextView
         android:id="@+id/lengthCompare"
@@ -27,13 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
         android:textSize="15sp"
-        android:text="Salut"/>
-
-    <EditText
-        android:id="@+id/mettre_ton_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mettre ton label"
-        android:inputType="text" />
+        android:hint="Data length comparision"/>
 
 </LinearLayout>

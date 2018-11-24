@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.EventListener;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.DataFormatException;
 
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -39,7 +40,12 @@ public class AsynchronousRequest {
         new Thread() {
             public void run() {
                 RequestBody data = RequestBody.create(mediaType, request);
-                Request request = new Request.Builder().url(urlToSend).post(data).build();
+                Request.Builder requestBuilder = new Request.Builder().url(urlToSend);
+                // added header for compressing
+                requestBuilder.addHeader("X-Content-Encoding", "gzip, deflate");
+
+                Request request = requestBuilder.post(data).build();
+
                 try {
                     Response response = client.newCall(request).execute();
 
@@ -48,6 +54,8 @@ public class AsynchronousRequest {
                     }
 
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (DataFormatException e) {
                     e.printStackTrace();
                 }
             }
