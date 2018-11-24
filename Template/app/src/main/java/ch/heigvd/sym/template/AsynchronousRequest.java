@@ -40,7 +40,12 @@ public class AsynchronousRequest {
         new Thread() {
             public void run() {
                 RequestBody data = RequestBody.create(mediaType, request);
-                Request request = new Request.Builder().url(urlToSend).post(data).build();
+                Request.Builder requestBuilder = new Request.Builder().url(urlToSend);
+                // added header for compressing
+                requestBuilder.addHeader("X-Content-Encoding", "gzip, deflate");
+
+                Request request = requestBuilder.post(data).build();
+
                 try {
                     Response response = client.newCall(request).execute();
 
