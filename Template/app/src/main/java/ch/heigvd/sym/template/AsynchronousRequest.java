@@ -27,10 +27,15 @@ public class AsynchronousRequest {
 
     private OkHttpClient client = new OkHttpClient();
 
-    //private List<EventListener> listeners = new LinkedList<>();
+    private List<RequestListener> listeners = new LinkedList<>();
+
+    public void newListener(RequestListener rqstListener){
+        if(!listeners.contains(rqstListener))
+            listeners.add(rqstListener);
+    }
 
     // Run a new thread for sending the request, so that activity process will not be interrupted
-    public void sendRequest(final String request, final String urlToSend, final MediaType mediaType) {
+    public void postRequest(final String request,final String urlToSend,final MediaType mediaType) {
         new Thread() {
             public void run() {
                 RequestBody data = RequestBody.create(mediaType, request);
@@ -38,9 +43,9 @@ public class AsynchronousRequest {
                 try {
                     Response response = client.newCall(request).execute();
 
-                    /*for (EventListener event : listeners) {
-                        if (event.handleServerResponse(response.body().string())) break;
-                    }*/
+                    for (RequestListener event : listeners) {
+                        if (event.handlerForRequest(response.body().string())) break;
+                    }
 
                 } catch (IOException e) {
                     e.printStackTrace();

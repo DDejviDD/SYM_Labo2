@@ -31,6 +31,7 @@ public class CompressedActivity extends AppCompatActivity {
     protected void onCreate(Bundle instanceState) {
         super.onCreate(instanceState);
         setContentView(R.layout.compressed);
+
         compressContent = findViewById(R.id.buttComp);
         contentToCompress = findViewById(R.id.contentCompress);
         contentDecompressed = findViewById(R.id.contentDecompress);
@@ -56,6 +57,7 @@ public class CompressedActivity extends AppCompatActivity {
                         bytesSended.toString().length()
                         + "\n" + "Length after decompression: "
                         + bytesReceived.toString().length());
+
             }
         });
     }
