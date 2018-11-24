@@ -90,6 +90,6 @@ public class SerialiseActivity extends AppCompatActivity {
                     }
                 }
         );
-        aRequest.postRequest(request,"http://sym.iict.ch/rest/txt", MediaType.parse("text/plain; charset=utf-8"));
+        aRequest.postRequest(request,"http://sym.iict.ch/rest/json", MediaType.parse("application/json; charset=utf-8"));
     }
 }
