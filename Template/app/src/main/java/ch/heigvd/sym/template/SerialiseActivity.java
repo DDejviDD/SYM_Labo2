@@ -10,9 +10,16 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 import org.xmlpull.v1.XmlSerializer;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 
 import okhttp3.MediaType;
@@ -67,27 +74,47 @@ public class SerialiseActivity extends AppCompatActivity {
             xmlData.startDocument("UTF-8", null);
             xmlData.docdecl(" directory SYSTEM \"http://sym.iict.ch/directory.dtd\"");
 
+
             xmlData.startTag("","directory");
-            xmlData.startTag("","type");
-            xmlData.text("xml");
-            xmlData.endTag("","type");
 
-            xmlData.startTag("",label_serializable_first_name.getText().toString());
-            xmlData.text(edit_serializable_first_name.getText().toString());
-            xmlData.endTag("",label_serializable_first_name.getText().toString());
+            xmlData.startTag("", "person");
 
-            xmlData.startTag("",label_serializable_last_name.getText().toString());
+            // open tag: <name>
+            xmlData.startTag("", "name");
             xmlData.text(edit_serializable_last_name.getText().toString());
-            xmlData.endTag("",label_serializable_last_name.getText().toString());
+            xmlData.endTag("", "name");
+
+            // open tag: <firstname>
+            xmlData.startTag("", "firstname");
+            xmlData.text(edit_serializable_first_name.getText().toString());
+            xmlData.endTag("", "firstname");
+
+            // open tag: <middlename>
+            xmlData.startTag("", "middlename");
+            xmlData.endTag("", "middlename");
+
+            // open tag: <gender>
+            xmlData.startTag("", "gender");
+            xmlData.text("M");
+            xmlData.endTag("", "gender");
+
+            // open tag: <phone>
+            xmlData.startTag("", "phone");
+            xmlData.attribute("", "type", "home");
+            xmlData.text("1234567890");
+            xmlData.endTag("", "phone");
+
+            // close tag: </person>
+            xmlData.endTag("", "person");
 
             xmlData.endTag("", "directory");
             xmlData.endDocument();
             sendXMLRequest(xml.toString());
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void sendXMLRequest(String request) {
@@ -95,13 +122,45 @@ public class SerialiseActivity extends AppCompatActivity {
         aRequest.newListener(new RequestListener() {
             @Override
             public boolean handlerForRequest(final String response) {
-                final String r = response;
+                InputStream is = new ByteArrayInputStream(response.getBytes());
+                XmlPullParserFactory factory = null;
+                String firstName=null;
+                String lastName=null;
+                try {
+                    factory = XmlPullParserFactory.newInstance();
+                    XmlPullParser parser = factory.newPullParser();
+                    parser.setInput(is, "utf-8");
+                    int eventType = parser.getEventType();
+
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
+                            if (parser.getName().equals("name")) {
+                                parser.next();
+                                lastName = (parser.getText());
+                            } else if (parser.getName().equals("firstname")){
+                                parser.next();
+                                firstName = (parser.getText());
+                            }
+                        }
+                        eventType = parser.next();
+                    }
+                }
+                catch (XmlPullParserException | IOException e){
+                    e.printStackTrace();
+                }
+
+                final String finalType = "xml";
+                final String finalFirstName = firstName;
+                final String finalLastName = lastName;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        response_serializable_first_name.setText(r);
+                        response_serializable_type.setText(finalType);
+                        response_serializable_first_name.setText(finalFirstName);
+                        response_serializable_last_name.setText(finalLastName);
                     }
                 });
+
                 return true;
             }
         });

@@ -15,6 +15,10 @@ public class DelayedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delayed);
 
+        boolean isOnline = false;
+
+
+
     }
 
 }
