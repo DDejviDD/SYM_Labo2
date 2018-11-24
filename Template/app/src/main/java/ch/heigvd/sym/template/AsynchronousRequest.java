@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.EventListener;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.DataFormatException;
 
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -48,6 +49,8 @@ public class AsynchronousRequest {
                     }
 
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (DataFormatException e) {
                     e.printStackTrace();
                 }
             }

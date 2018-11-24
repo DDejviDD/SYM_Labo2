@@ -10,16 +10,21 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterOutputStream;
 
+import okhttp3.MediaType;
+
 public class CompressedActivity extends AppCompatActivity {
 
     private Button compressContent;
     private TextView contentToCompress;
+    private TextView contentCompressed;
+
     private TextView contentDecompressed;
     private TextView lengthComparison;
 
@@ -34,35 +39,69 @@ public class CompressedActivity extends AppCompatActivity {
 
         compressContent = findViewById(R.id.buttComp);
         contentToCompress = findViewById(R.id.contentCompress);
+        contentCompressed = findViewById(R.id.contentCompressed);
         contentDecompressed = findViewById(R.id.contentDecompress);
         lengthComparison = findViewById(R.id.lengthCompare);
 
         compressContent.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                byte[] bytesSended = new byte[0];
-                byte[] bytesReceived = new byte[0];
+            public void onClick(View view) {
+
+                System.out.println(contentToCompress.getText().toString());
 
                 try {
-                    bytesSended = postCompress();
-                    bytesReceived = getDecompressed();
+                    postRequest(contentToCompress.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (DataFormatException e) {
-                    e.printStackTrace();
                 }
-                contentDecompressed.setText(bytesReceived.toString());
 
                 lengthComparison.setText( "Length before compression: " +
-                        bytesSended.toString().length()
-                        + "\n" + "Length after decompression: "
-                        + bytesReceived.toString().length());
+                        contentToCompress.toString().length()
+                        + "\n" + "Length after compression: "
+                        + contentCompressed.toString().length());
 
             }
         });
     }
 
-    public byte[] postCompress() throws IOException {
+    public void postRequest(String rqst) throws IOException {
+        AsynchronousRequest request = new AsynchronousRequest() ;
+        request.newListener(
+                new RequestListener(){
+                    public boolean handlerForRequest(final String response) throws IOException, DataFormatException {
+
+                        // here we should decompress response
+
+                        System.out.println(response);
+
+                        // decompress data on server
+
+                        final String serverResponse = getDecompressed(response).toString();
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                contentDecompressed.setText(serverResponse);
+                            }
+                        });
+
+                        return true;
+                    }
+                }
+        );
+
+        // here we should compress data before sending it
+
+        String compressedData = compressData().toString();
+
+        // show how data was compressed
+        contentCompressed.setText(compressedData);
+
+        request.postRequest(compressedData,"http://sym.iict.ch/rest/txt", MediaType.parse("text/plain; charset=utf-8"));
+    }
+
+
+    public byte[] compressData() throws IOException {
 
         byte[] data = contentToCompress.getText().toString().getBytes();
 
@@ -84,13 +123,12 @@ public class CompressedActivity extends AppCompatActivity {
         return output;
     }
 
-    public byte[] getDecompressed() throws IOException, DataFormatException {
+    public byte[] getDecompressed(final String data) throws IOException, DataFormatException {
 
-        byte[] data = textFromServer.getBytes();
 
         Inflater inflater = new Inflater();
-        inflater.setInput(data);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
+        inflater.setInput(data.getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length());
         InflaterOutputStream decompressed = new InflaterOutputStream(outputStream,inflater);
 
         byte[] buffer = new byte[1024];

@@ -68,6 +68,7 @@ public class AsynchActivity extends AppCompatActivity {
                     }
                 }
         );
+
         request.postRequest(rqst,"http://sym.iict.ch/rest/txt", MediaType.parse("text/plain; charset=utf-8"));
     }
 
