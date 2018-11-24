@@ -3,10 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <EditText
-        android:id="@+id/mettre_ton_id"
+
+    <TextView
+        android:id="@+id/authorsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mettre ton label"
-        android:inputType="text" />
+        android:textSize="20sp"
+        android:text="Authors" />
+
+    <Spinner
+        android:id="@+id/authorsSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30sp"/>
+
+    <TextView
+        android:id="@+id/authorPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Post" />
+
+    <ScrollView
+        android:id="@+id/postView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>
