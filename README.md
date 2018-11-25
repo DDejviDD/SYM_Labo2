@@ -31,6 +31,7 @@ Bien évidemment pour rendre ce type de méthode utilisable, il faudrait mettre 
 Les restrictions serait de **mettre en place un formulaire de connexion** pour demander au serveur token d'authentification. Si le serveur valide la connexion du client, il lui renvoie un token d'authentification unique.
 
 De plus il faudrait prévoir **un champ "session token"** que ce soit dans le xml ou json ou tout autre format pour garantir l'authenticité du client.
+
 **Peut-on utiliser une transmission différée ?**
 
 Le but de la transmission différée est d’envoyer une salve de message en une fois afin de libérer les ressources le plus longtemps possible.
