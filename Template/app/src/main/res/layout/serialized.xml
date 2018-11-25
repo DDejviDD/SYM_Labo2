@@ -49,6 +49,6 @@
         android:id="@+id/response_serializable_response"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/waiting" />
+        android:hint="@string/waiting_response" />
 
 </LinearLayout>

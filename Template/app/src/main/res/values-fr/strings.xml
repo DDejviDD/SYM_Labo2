@@ -2,12 +2,27 @@
 <resources>
 
     <string name="app_name">SYM Communication Internet</string>
-    <string name="buttAsynch">Transmissions Asynchrone</string>
-    <string name="buttDiff">Transmission Différée</string>
-    <string name="buttObj">Transmission d\'Objet</string>
-    <string name="buttGraph">Transmission GraphQL</string>
-    <string name="buttComp">Transmission Compressée</string>
+    <string name="main_butt_Asynch">Transmissions Asynchrone</string>
+    <string name="main_butt_Diff">Transmission Différée</string>
+    <string name="main_butt_Obj">Transmission d\'Objet</string>
+    <string name="main_butt_Graph">Transmission GraphQL</string>
+    <string name="main_butt_Comp">Transmission Compressée</string>
     <string name="title_activity_on_success">Bienvenu !</string>
     <string name="good">Prochaine Activité</string>
-
+    <string name="delayed_data">Données à envoyer</string>
+    <string name="delayed_send_request">Envoyer les données</string>
+    <string name="waiting_response">Attente de la réponse</string>
+    <string name="serializable_send_json_request">Envoyer un JSON</string>
+    <string name="serializable_send_xml_request">Envoyer un XML</string>
+    <string name="serializable_last_name">Nom</string>
+    <string name="serializable_first_name">Prénom</string>
+    <string name="graph_Authors">Auteurs</string>
+    <string name="graph_Post">Poste</string>
+    <string name="compressed_Data">Inserer votre texte</string>
+    <string name="compressed_Send">Envoyer les données</string>
+    <string name="compressed_Data_Compression">Données compressée</string>
+    <string name="compressed_Data_Decompression">Données decompréssés</string>
+    <string name="compressed_Data_Compare">Comparaison des tailles</string>
+    <string name="asynch_Data">Inserer votre texte</string>
+    <string name="asynch_Send">Envoyer les données</string>
 </resources>

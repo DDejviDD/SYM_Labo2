@@ -2,27 +2,27 @@
 <resources>
 
     <string name="app_name">SYM Internet Communication</string>
-    <string name="buttAsynch">Asynchronous Transmission</string>
-    <string name="buttDiff">Delayed Transmission</string>
-    <string name="buttObj">Object Transmission</string>
-    <string name="buttGraph">GraphQL Transmission</string>
-    <string name="buttComp">Compressed Transmission</string>
+    <string name="main_butt_Asynch">Asynchronous Transmission</string>
+    <string name="main_butt_Diff">Delayed Transmission</string>
+    <string name="main_butt_Obj">Object Transmission</string>
+    <string name="main_butt_Graph">GraphQL Transmission</string>
+    <string name="main_butt_Comp">Compressed Transmission</string>
     <string name="title_activity_on_success">Welcome !</string>
     <string name="good">Next Activity</string>
     <string name="delayed_data">Data to send</string>
     <string name="delayed_send_request">Send data</string>
-    <string name="waiting">Waiting server response</string>
+    <string name="waiting_response">Waiting server response</string>
     <string name="serializable_send_json_request">Send as a JSON</string>
     <string name="serializable_send_xml_request">Send as a XML</string>
     <string name="serializable_last_name">Last name</string>
     <string name="serializable_first_name">First name</string>
-    <string name="graphAuthors">Authors</string>
-    <string name="graphPost">Post</string>
-    <string name="compressedData">Insert your text</string>
-    <string name="compressedSend">Send data</string>
-    <string name="compressedDataCompressed">Data compressed</string>
-    <string name="compressedDataDecompressed">Data decompressed</string>
-    <string name="compressedDataCompare">Data length comparision</string>
-    <string name="asynchData">Insert your text</string>
-    <string name="asynchSend">Send data</string>
+    <string name="graph_Authors">Authors</string>
+    <string name="graph_Post">Post</string>
+    <string name="compressed_Data">Insert your text</string>
+    <string name="compressed_Send">Send data</string>
+    <string name="compressed_Data_Compression">Data compressed</string>
+    <string name="compressed_Data_Decompression">Data decompressed</string>
+    <string name="compressed_Data_Compare">Data length comparision</string>
+    <string name="asynch_Data">Insert your text</string>
+    <string name="asynch_Send">Send data</string>
 </resources>
