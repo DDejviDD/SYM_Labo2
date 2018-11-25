@@ -1,10 +1,10 @@
 # Systèmes mobiles
 ## Laboratoire n°2 : Protocoles applicatifs
 
-> Auteurs : Loic Frueh - Koubaa Walid - Muaremi Dejvid 
-> Enseignant : Fabien Dutoit 
-> Assistants : Christophe Greppin, Valentin Minder 
-> Date : 09.10.2018
+> Auteurs : Loic Frueh - Koubaa Walid - Muaremi Dejvid   
+> Enseignant : Fabien Dutoit   
+> Assistants : Christophe Greppin, Valentin Minder   
+> Date : 09.10.2018  
 
 
 ### 1 Traitement des erreurs
@@ -84,7 +84,8 @@ Bien sûr, protocol buffer permet de sérialiser des données d’une manière p
 - Peu verbeux
 
 *Désavantages :*
-- Pas toujours validable
+- Pas toujours validable  
+
 **XML**
 
 *Avantages :*
@@ -96,8 +97,18 @@ Bien sûr, protocol buffer permet de sérialiser des données d’une manière p
 *Désavantages :*
 - Très verbeux
 
-c. Par rapport à l’API GraphQL mise à disposition pour ce laboratoire. Avez-vous constaté des points qui pourraient être améliorés pour une utilisation mobile ? 
-Veuillez en discuter, vous pouvez élargir votre réflexion à une problématique plus large que la manipulation effectuée.
+#### Optimisation de GraphQL
+Une idéé serait de pre-enregistrer certaine requete directement dans le client, et ce pour gagner du temps et un bon moyen de combattre les fluctuation capricieuse de la connexion mobile.
+Aussi d'autres ameliorations possible serait de : 
+- Limiter le nombre de data
+- Valider les data
+- Optimiser les requêtes
+- queries server-server au lieu de client-server
+- utiliser des dataloader pour minimiser les accès db
+ - Si on touche la même table de la db plusieurs fois, on mets les appels en lots
+ - Si on touche plusieurs fois au même objet dans la db, on utilise celui qui est en cache
+
+exemple d amélioration pratique possible : https://blog.apollographql.com/improve-graphql-performance-with-automatic-persisted-queries-c31d27b8e6ea  
 
 ### 6 Transmission compressée
 **Quel gain peut-on constater en moyenne sur des fichiers texte (xml et json sont aussi du texte)en utilisant de la compression du point 3.4 ?**
@@ -111,7 +122,6 @@ Neanmoins nous avons pu tester le rapport de compression entre les données text
 
 - Pour du json, le gain est plus élevé car les accolades sont très present pour chaque element. Pour un json simple d'une trentaine de caractères, le ratio est de 2.9
 - Pour de l' xml, le gain est aussi élevé car les chevrons des balises sont assez recurrents. Avec un xml simple d'une cinquantaine de caractères, le ratio était de 2.7
-
 
 **Vous comparerez vos résultats par rapport au gain théorique d’une compression DEFLATE, vous enverrez aussi plusieurs tailles de contenu pour comparer.**
 
