@@ -52,6 +52,16 @@ public class CompressedActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                /*String compressedData = null;
+                try {
+                    compressedData = compressData(contentToCompress.getText().toString()).toString();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                // show how data was compressed
+                contentCompressed.setText(compressedData);
+                */
 
                 lengthComparison.setText( "Length before compression: " +
                         contentToCompress.toString().length()
