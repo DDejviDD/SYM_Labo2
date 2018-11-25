@@ -7,14 +7,14 @@
         android:id="@+id/dataToSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/asynchData"
+        android:hint="@string/asynch_Data"
         android:inputType="text" />
 
     <Button
         android:id="@+id/sendButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/asynchSend" />
+        android:text="@string/asynch_Send" />
 
     <TextView
         android:id="@+id/dataReceived"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:gravity="center_horizontal"
-        android:hint="@string/waiting"
+        android:hint="@string/waiting_response"
         />
 
 </LinearLayout>

@@ -24,7 +24,7 @@
 
         <activity
             android:name=".AsynchActivity"
-            android:label="@string/buttAsynch">
+            android:label="@string/main_butt_Asynch">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -34,7 +34,7 @@
 
         <activity
             android:name=".CompressedActivity"
-            android:label="@string/buttComp">
+            android:label="@string/main_butt_Comp">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -44,7 +44,7 @@
 
         <activity
             android:name=".DelayedActivity"
-            android:label="@string/buttDiff">
+            android:label="@string/main_butt_Diff">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -54,7 +54,7 @@
 
         <activity
             android:name=".GraphActivity"
-            android:label="@string/buttGraph">
+            android:label="@string/main_butt_Graph">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -64,7 +64,7 @@
 
         <activity
             android:name=".SerializedActivity"
-            android:label="@string/buttObj">
+            android:label="@string/main_butt_Obj">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="MainActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
