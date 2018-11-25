@@ -43,4 +43,12 @@ Veuillez en discuter, vous pouvez élargir votre réflexion à une problématiqu
 
 ### 6 Transmission compressée
 Quel gain peut-on constater en moyenne sur des fichiers texte (xml et json sont aussi du texte)en utilisant de la compression du point 3.4 ?  
+
+L'activity de compression bien que normalement bien implementée n'envoie pas de requete au serveur faute d'une erreur de connexion internet non trouvée (alors que celle ci fait appel a une requete POST asynchrone qui fonctionne au meme moment).
+
+image
+
+Neanmoins nous avons pu tester le rapport de compression entre les données textes avant compression et après compression (meme si
+
+
 Vous comparerez vos résultats par rapport au gain théorique d’une compression DEFLATE, vous enverrez aussi plusieurs tailles de contenu pour comparer.

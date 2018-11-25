@@ -28,8 +28,6 @@ public class CompressedActivity extends AppCompatActivity {
     private TextView contentDecompressed;
     private TextView lengthComparison;
 
-    private String textFromServer;
-
     // Source : https://dzone.com/articles/how-compress-and-uncompress
 
     @Override
@@ -58,7 +56,10 @@ public class CompressedActivity extends AppCompatActivity {
                 lengthComparison.setText( "Length before compression: " +
                         contentToCompress.toString().length()
                         + "\n" + "Length after compression: "
-                        + contentCompressed.toString().length());
+                        + contentCompressed.toString().length() +"\n" + "Ratio for compression gain :"
+                + ( (1- ( contentCompressed.toString().length()/ contentToCompress.toString().length()))  *100 ) + "%" );
+
+
 
             }
         });
@@ -92,7 +93,7 @@ public class CompressedActivity extends AppCompatActivity {
 
         // here we should compress data before sending it
 
-        String compressedData = compressData().toString();
+        String compressedData = compressData(rqst).toString();
 
         // show how data was compressed
         contentCompressed.setText(compressedData);
@@ -101,13 +102,11 @@ public class CompressedActivity extends AppCompatActivity {
     }
 
 
-    public byte[] compressData() throws IOException {
-
-        byte[] data = contentToCompress.getText().toString().getBytes();
+    public byte[] compressData(final String data) throws IOException {
 
         Deflater deflater = new Deflater();
-        deflater.setInput(data);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
+        deflater.setInput(data.getBytes());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length());
         DeflaterOutputStream compressed = new DeflaterOutputStream(outputStream,deflater);
 
         byte[] buffer = new byte[1024];
