@@ -31,8 +31,15 @@ La transmission différe n'est peut etre pas le meilleur moyen de gere l'authent
 Bien que celle ci peut etre utilisée, elle posera un probleme de délai d'attente  de la réponse du serveur très long avant de prouver l'authenticité du client.
 
 ### 3 Threads concurrents
-Lors de l'utilisation de protocoles asynchrones, c'est généralement deux threads différents qui se préoccupent de la préparation, de l'envoi, de la réception et du traitement des données.  
-Quels problèmes cela peut-il poser ?
+**Lors de l'utilisation de protocoles asynchrones, c'est généralement deux threads différents qui se préoccupent de la préparation, de l'envoi, de la réception et du traitement des données.  
+Quels problèmes cela peut-il poser ?**
+
+L'exécution d'un thread A avant un thread B dépend de la rapidité d'execution et traitement de chaque étape et il se peut qu'une étape s'exécute plus vite que les autres. Le traitement des données ne se fait donc pas dans l'ordre et peut poser problème.
+
+Il faut faire attention aux sections critiques et aux variables partagées, et s'assurer que l'ordre d'execution de chacune des étapes (préparation, envoi, réception) soit bien respecté.
+
+
+Par exemple, pour  l'authentification évoquée plus haut, il faudrait éviter que le client n'envoie une requête avant d'avoir reçu la clé de session et vérifié l'authenticité de l'envoyeur.
 
 ### 4 Ecriture différée
 Lorsque l'on implémente l'écriture différée, il arrive que l'on ait soudainement plusieurs transmissions en attente qui deviennent possibles simultanément.  
