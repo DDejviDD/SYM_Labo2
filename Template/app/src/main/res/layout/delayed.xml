@@ -3,10 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <EditText
-        android:id="@+id/mettre_ton_id"
+    <TextView
+        android:id="@+id/label_delayed_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mettre ton label"
-        android:inputType="text" />
+        android:layout_marginTop="50dp"
+        android:text="string/delayed_data" />
+
+    <EditText
+        android:id="@+id/edit_delayed_data"
+        android:layout_width="match_parent" android:inputType=""
+        android:layout_height="wrap_content"
+        android:hint="string/delayed_data" />
+
+    <Button
+        android:id="@+id/delayed_send_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="string/delayed_send_request" />
+
+
+    <TextView
+        android:id="@+id/delayed_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="string/delayed_response" />
+
 </LinearLayout>

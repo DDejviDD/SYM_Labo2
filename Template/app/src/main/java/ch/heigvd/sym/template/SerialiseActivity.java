@@ -36,6 +36,7 @@ public class SerialiseActivity extends AppCompatActivity {
     private TextView response_serializable_first_name;
     private TextView response_serializable_last_name;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ public class SerialiseActivity extends AppCompatActivity {
         response_serializable_type = findViewById(R.id.response_serializable_type);
         response_serializable_first_name = findViewById(R.id.response_serializable_first_name);
         response_serializable_last_name = findViewById(R.id.response_serializable_last_name);
+
 
         serializable_send_xml_request.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +125,7 @@ public class SerialiseActivity extends AppCompatActivity {
             @Override
             public boolean handlerForRequest(final String response) {
                 InputStream is = new ByteArrayInputStream(response.getBytes());
-                XmlPullParserFactory factory = null;
+                XmlPullParserFactory factory;
                 String firstName=null;
                 String lastName=null;
                 try {
@@ -178,16 +180,16 @@ public class SerialiseActivity extends AppCompatActivity {
         }
         sendJsonRequest(jsonData.toString());
     }
-    public void sendJsonRequest(String request) {
+    public void sendJsonRequest(final String request) {
         AsynchronousRequest aRequest = new AsynchronousRequest();
         aRequest.newListener(
                 new RequestListener() {
                     @Override
                     public boolean handlerForRequest(String response) {
                         JSONObject received;
-                        String type = response_serializable_type.getText().toString();
-                        String firstName = response_serializable_first_name.getText().toString();
-                        String lastName = response_serializable_last_name.getText().toString();
+                        String type = "";
+                        String firstName = "";
+                        String lastName = "";
 
                         try {
                             received = new JSONObject(response);
