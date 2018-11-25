@@ -24,7 +24,7 @@ import java.io.StringWriter;
 
 import okhttp3.MediaType;
 
-public class SerialiseActivity extends AppCompatActivity {
+public class SerializedActivity extends AppCompatActivity {
 
     private TextView label_serializable_first_name;
     private EditText edit_serializable_first_name;
@@ -40,7 +40,7 @@ public class SerialiseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.serialisation);
+        setContentView(R.layout.serialized);
 
         label_serializable_first_name = findViewById(R.id.label_serializable_first_name);
         edit_serializable_first_name = findViewById(R.id.edit_serializable_first_name);
