@@ -32,9 +32,8 @@ public class SerializedActivity extends AppCompatActivity {
     private EditText edit_serializable_last_name;
     private Button   serializable_send_xml_request;
     private Button   serializable_send_json_request;
-    private TextView response_serializable_type;
-    private TextView response_serializable_first_name;
-    private TextView response_serializable_last_name;
+    private TextView response_serializable_response;
+
 
 
     @Override
@@ -48,10 +47,7 @@ public class SerializedActivity extends AppCompatActivity {
         edit_serializable_last_name = findViewById(R.id.edit_serializable_last_name);
         serializable_send_xml_request = findViewById(R.id.serializable_send_xml_request);
         serializable_send_json_request = findViewById(R.id.serializable_send_json_request);
-        response_serializable_type = findViewById(R.id.response_serializable_type);
-        response_serializable_first_name = findViewById(R.id.response_serializable_first_name);
-        response_serializable_last_name = findViewById(R.id.response_serializable_last_name);
-
+        response_serializable_response = findViewById(R.id.response_serializable_response);
 
         serializable_send_xml_request.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,9 +153,8 @@ public class SerializedActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        response_serializable_type.setText(finalType);
-                        response_serializable_first_name.setText(finalFirstName);
-                        response_serializable_last_name.setText(finalLastName);
+                        String tmp = finalType + " " + finalFirstName + " " + finalLastName + "\n" + response_serializable_response.getText().toString();
+                        response_serializable_response.setText(tmp);
                     }
                 });
 
@@ -205,9 +200,8 @@ public class SerializedActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                response_serializable_type.setText(finalType);
-                                response_serializable_first_name.setText(finalFirstName);
-                                response_serializable_last_name.setText(finalLastName);
+                                String tmp = finalType + " " + finalFirstName + " " + finalLastName + "\n" + response_serializable_response.getText().toString();
+                                response_serializable_response.setText(tmp);
                             }
                         });
                         return true;
