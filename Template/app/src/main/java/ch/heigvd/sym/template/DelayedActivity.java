@@ -30,29 +30,25 @@ public class DelayedActivity extends AppCompatActivity {
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-                if (isOnline()&&!pool.isEmpty()) {
-                    while (!pool.isEmpty()){
-                        if(isOnline()){
-                            sendRequest(pool.get(0));
-                            pool.remove(0);
-                        }
-                        else {
-                            handler.postDelayed(runnable, DELAY);
-                        }
+            if (isOnline() && !pool.isEmpty()) {
+                while (!pool.isEmpty()) {
+                    if (isOnline()) {
+                        sendRequest(pool.get(0));
+                        pool.remove(0);
+                    } else {
+                        handler.postDelayed(runnable, DELAY);
                     }
-                } else {
-                    handler.postDelayed(runnable, DELAY);
                 }
+            } else {
+                handler.postDelayed(runnable, DELAY);
             }
+        }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delayed);
-
-        new Thread(runnable).start();
-
 
         edit_delayed_data = findViewById(R.id.edit_delayed_data);
         delayed_send_request = findViewById(R.id.delayed_send_request);
@@ -63,7 +59,7 @@ public class DelayedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pool.add(edit_delayed_data.getText().toString());
                 edit_delayed_data.getText().clear();
-                if(pool.isEmpty()){
+                if (!pool.isEmpty()) {
                     handler.postDelayed(runnable, DELAY);
                 }
             }
