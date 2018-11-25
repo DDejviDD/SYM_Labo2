@@ -9,4 +9,11 @@
     <string name="buttComp">Compressed Transmission</string>
     <string name="title_activity_on_success">Welcome !</string>
     <string name="good">Next Activity</string>
+    <string name="delayed_data">Data to send</string>
+    <string name="delayed_send_request">Send data</string>
+    <string name="waiting">Waiting server response</string>
+    <string name="serializable_send_json_request">Send as a JSON</string>
+    <string name="serializable_send_xml_request">Send as a XML</string>
+    <string name="serializable_last_name">Last name</string>
+    <string name="serializable_first_name">First name</string>
 </resources>

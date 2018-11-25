@@ -10,45 +10,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="string/serializable_first_name" />
+        android:text="@string/serializable_first_name" />
 
     <EditText
         android:id="@+id/edit_serializable_first_name"
         android:layout_width="match_parent"
         android:inputType="text"
         android:layout_height="wrap_content"
-        android:hint="serializable_first_name" />
+        android:hint="@string/serializable_first_name" />
 
     <TextView
         android:id="@+id/label_serializable_last_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="string/serializable_last_name" />
+        android:text="@string/serializable_last_name" />
 
     <EditText
         android:id="@+id/edit_serializable_last_name"
         android:layout_width="match_parent"
         android:inputType="text"
         android:layout_height="wrap_content"
-        android:hint="serializable_lastname" />
+        android:hint="@string/serializable_last_name" />
 
     <Button
         android:id="@+id/serializable_send_xml_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="string/serializable_send_xml_request" />
+        android:text="@string/serializable_send_xml_request" />
 
     <Button
         android:id="@+id/serializable_send_json_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="string/serializable_send_json_request" />
+        android:text="@string/serializable_send_json_request" />
 
     <TextView
         android:id="@+id/response_serializable_response"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="string/waiting" />
+        android:hint="@string/waiting" />
 
 </LinearLayout>

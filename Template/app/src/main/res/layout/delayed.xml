@@ -8,19 +8,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="string/delayed_data" />
+        android:text="@string/delayed_data" />
 
     <EditText
         android:id="@+id/edit_delayed_data"
         android:layout_width="match_parent" android:inputType=""
         android:layout_height="wrap_content"
-        android:hint="string/delayed_data" />
+        android:hint="@string/delayed_data" />
 
     <Button
         android:id="@+id/delayed_send_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="string/delayed_send_request" />
+        android:text="@string/delayed_send_request" />
 
 
     <TextView
@@ -28,6 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="string/delayed_response" />
+        android:hint="@string/waiting" />
 
 </LinearLayout>
