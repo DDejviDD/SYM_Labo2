@@ -16,4 +16,6 @@
     <string name="serializable_send_xml_request">Send as a XML</string>
     <string name="serializable_last_name">Last name</string>
     <string name="serializable_first_name">First name</string>
+    <string name="graphAuthors">Authors</string>
+    <string name="graphPost">Post</string>
 </resources>

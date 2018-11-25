@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Authors" />
+        android:text="@string/graphAuthors" />
 
     <Spinner
         android:id="@+id/authorsSpinner"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Post" />
+        android:text="@string/graphPost" />
 
     <ScrollView
         android:id="@+id/postView"
