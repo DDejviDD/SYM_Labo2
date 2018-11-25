@@ -18,4 +18,11 @@
     <string name="serializable_first_name">First name</string>
     <string name="graphAuthors">Authors</string>
     <string name="graphPost">Post</string>
+    <string name="compressedData">Insert your text</string>
+    <string name="compressedSend">Send data</string>
+    <string name="compressedDataCompressed">Data compressed</string>
+    <string name="compressedDataDecompressed">Data decompressed</string>
+    <string name="compressedDataCompare">Data length comparision</string>
+    <string name="asynchData">Insert your text</string>
+    <string name="asynchSend">Send data</string>
 </resources>

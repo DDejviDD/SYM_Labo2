@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:hint="Insert your text"
+        android:hint="@string/compressedData"
         android:gravity="center_horizontal" />
     <Button
         android:id="@+id/buttComp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send data"/>
+        android:text="@string/compressedSend"/>
     <TextView
         android:id="@+id/contentCompressed"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         android:layout_marginTop="5sp"
         android:textSize="15sp"
         android:gravity="center_horizontal"
-        android:hint="Data compressed"/>
+        android:hint="@string/compressedDataCompressed"/>
 
     <TextView
         android:id="@+id/contentDecompress"
@@ -31,7 +31,7 @@
         android:layout_marginTop="5sp"
         android:textSize="15sp"
         android:gravity="center_horizontal"
-        android:hint="Data decompressed"/>
+        android:hint="@string/compressedDataDecompressed"/>
 
     <TextView
         android:id="@+id/lengthCompare"
@@ -39,6 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
         android:textSize="15sp"
-        android:hint="Data length comparision"/>
+        android:hint="@string/compressedDataCompare"/>
 
 </LinearLayout>
